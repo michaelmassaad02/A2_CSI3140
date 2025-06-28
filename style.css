@@ -1,3 +1,4 @@
+/* General Body Styling */
 body {
     font-family: sans-serif;
     background-color: #1c1c1c;
@@ -19,29 +20,39 @@ p {
     margin-bottom: 2em;
 }
 
-/* Form Layout */
+/* Form Layout - row layout with equal width fields */
 .formContainer {
-    max-width: 700px;
+    width: 700px; /* Fixed width to keep everything in one row */
     margin: auto;
     padding: 20px;
     border-radius: 12px;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     gap: 40px;
-
+    flex-wrap: nowrap; /* prevent wrapping */
+    overflow-x: auto;  /* optional: allows scroll if screen is smaller */
 }
-
-.formContainer button {}
 
 .formContainer label {
-    font-weight: 500;
-    display: block;
+    flex: 1;
+    min-width: 0; /* important: allow shrinking */
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin-right: 10px;
 }
 
-/* Input Fields & Selects */
+/* Remove margin on the last input to prevent extra spacing at the end */
+.formContainer label:last-child {
+    margin-right: 0;
+}
+
+/* Input Fields & Dropdown */
 input[type="text"],
 select {
     width: 100%;
-    padding: 5px;
+    padding: 10px 12px;
     background-color: #1c1c1c;
     color: #f0f0f0;
     border: 1px solid #555;
@@ -50,30 +61,37 @@ select {
     margin-top: 5px;
 }
 
-/* Stars */
+input[type="text"]::placeholder {
+    color: #888;
+}
+
+/* Star Rating */
 .stars {
     display: flex;
     gap: 8px;
-    font-size: 28px;
+    font-size: 24px;
     cursor: pointer;
     padding-top: 5px;
 }
 
 .star {
     color: #555;
+    cursor: pointer;
+    font-size: 24px;
 }
 
-.star.hover,
 .star.selected {
     color: gold;
 }
-
 /* Add Movie Button */
 #addMovieButton {
+    max-width: 700px;
+    margin: 20px auto 0 auto;
+    display: block;
     background-color: #ff0033;
     border: none;
     padding: 14px;
-    border-radius: 6px;
+    border-radius: 8px;
     font-weight: bold;
     font-size: 16px;
     color: white;
@@ -92,26 +110,49 @@ select {
     background-color: #2a2a2a;
     padding: 20px;
     border-radius: 12px;
+
     display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: space-between;
+    justify-content: space-between; /* left-right alignment */
     align-items: center;
+    gap: 20px;
+    flex-wrap: nowrap;
 }
 
-.filterSort h3 {
-    margin: 0;
+/* Sort group on the left */
+.sort-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sort-label {
     color: #ccc;
-    flex: 1 1 100%;
+    font-weight: bold;
+    margin-right: 5px;
 }
 
-.filterSort label {
-    flex: 1;
+/* Filter group on the right */
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.filterSort select {
-    margin-top: 5px;
+.filter-group label {
+    color: #ccc;
+    font-weight: bold;
+    margin-right: 5px;
 }
+
+.filter-group select {
+    padding: 8px;
+    background-color: #1c1c1c;
+    color: #f0f0f0;
+    border: 1px solid #555;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
 
 /* Wishlist Title */
 h2 {
@@ -146,6 +187,11 @@ h2 {
     margin-bottom: 10px;
 }
 
+.movie-card.watched {
+    background-color: #28a745; /* deep green */
+    transition: background-color 0.3s ease;
+}
+
 .genre-badge {
     background-color: red;
     color: white;
@@ -158,6 +204,7 @@ h2 {
 
 .movie-card .stars {
     margin-top: 8px;
+    color: gold;
 }
 
 /* Movie Card Buttons */
@@ -267,4 +314,30 @@ h2 {
 
 .closeButton:hover {
     color: white;
+}
+
+.icon-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+}
+
+.icon-btn {
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.icon-btn:hover {
+    background-color: #666;
 }

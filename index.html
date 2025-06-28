@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Michael and Gaby Movie Wishlist</title>
     <link rel="stylesheet" href = "style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 
 </head>
 
@@ -44,23 +44,25 @@
 <input type ="button" id = "addMovieButton" value = "Add Movie" style="width: 50%; display:block; margin:auto">
 
 
-<div class ="filterSort">
-    <h3>Sort by:</h3>
-    <input type="button" id = "sortByTitle" value = "Title">
-    <input type = "button" id = "sortByRating" value = "Rating">
+<div class="filterSort">
+  <div class="sort-group">
+    <span class="sort-label">Sort by:</span>
+    <input type="button" id="sortByTitle" value="Title">
+    <input type="button" id="sortByRating" value="Rating">
+  </div>
 
-    <label>
-        Filter by Genre:
-        <select id = "filterGenre">
-            <option value = "">All Genres</option>
-            <option value = "Action">Action</option>
-            <option value = "Comedy">Comedy</option>
-            <option value = "Drama">Drama</option>
-            <option value = "Horror">Horror</option>
-            <option value = "Sci-Fi">Sci-Fi</option>
-            <option value = "Thriller">Thriller</option>
-        </select>
-    </label>
+  <div class="filter-group">
+    <label for="filterGenre">Filter by Genre:</label>
+    <select id="filterGenre">
+      <option value="">All Genres</option>
+      <option value="Action">Action</option>
+      <option value="Comedy">Comedy</option>
+      <option value="Drama">Drama</option>
+      <option value="Horror">Horror</option>
+      <option value="Sci-Fi">Sci-Fi</option>
+      <option value="Thriller">Thriller</option>
+    </select>
+  </div>
 </div>
 
 <h2 style = "text-align: left; margin-left: 25%; color: #f0f0f0">Your Wishlist</h2>
@@ -73,7 +75,7 @@
 
         <label>
             Title<br>
-            <input id="editTitle" type="text" placeholder="Movie Title">
+            <input id="editTitle" type="text" placeholder="Movie Title" style = "width: 93%;">
         </label>
 
         <label>
